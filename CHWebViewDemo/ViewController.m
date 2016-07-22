@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)alibaba:(UIButton *)sender {
-    CHWebViewController *web = [[CHWebViewController alloc]initWithURL:@"https://www.alibaba.com"];
+    CHWebViewController *web = [[CHWebViewController alloc]initWithURL:@"http://app4tv.sudaotech.com/mobile/contentDetail.html?id=13823"];
     [self.navigationController pushViewController:web animated:YES];
 }
 - (IBAction)jsdemo:(UIButton *)sender {

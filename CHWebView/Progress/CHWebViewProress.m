@@ -188,4 +188,21 @@ const float FinalProgressValue = 0.9f;
     
     return NO;
 }
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
+{
+    NSMethodSignature *signature = [super methodSignatureForSelector:selector];
+    if(!signature) {
+        if([_webViewProxyDelegate respondsToSelector:selector]) {
+            return [(NSObject *)_webViewProxyDelegate methodSignatureForSelector:selector];
+        }
+    }
+    return signature;
+}
+
+- (void)forwardInvocation:(NSInvocation*)invocation
+{
+    if ([_webViewProxyDelegate respondsToSelector:[invocation selector]]) {
+        [invocation invokeWithTarget:_webViewProxyDelegate];
+    }
+}
 @end

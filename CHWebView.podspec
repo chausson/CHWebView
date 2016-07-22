@@ -12,8 +12,11 @@ Pod::Spec.new do |s|
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.1"}
-  s.source_files  = "CHNetworking/Classes/*.{h,m}","CHNetworking/Classes/CHModel/*.{h,m}"
- 
+  s.source_files  = "CHWebView/*.{h,m}" 
+  s.subspecs 'Core' do |cs|
+    sp.source_files = 'CHWebView/Core'
+  s.subspecs 'Progress' do |cs|
+    sp.source_files = 'CHWebView/Progress'
  
 end
 

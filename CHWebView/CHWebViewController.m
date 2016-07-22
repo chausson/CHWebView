@@ -41,7 +41,23 @@
 
     _mainWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0 , self.view.frame.size.width, self.view.frame.size.height)];
     _mainWebView.backgroundColor = [UIColor whiteColor];
+
     [self.view addSubview:self.mainWebView];
+    if (!_isFile && [self navigationHeight] > 0) {
+        _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, [self navigationHeight], self.view.frame.size.width, 2)];
+        _progressProxy = [[CHWebViewProress alloc]init];
+        _progressProxy.webViewProxyDelegate = self;
+        _progressProxy.progressDelegate = self;
+        _progressView.hidden = YES;
+        _mainWebView.delegate = _progressProxy;
+    }else{
+        _mainWebView.delegate = self;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    if (_progressView) {
+        [self.view addSubview:_progressView];
+    }
+    [self.mainWebView loadRequest:self.req];
 
 }
 - (NSURLRequest *)req{
@@ -61,21 +77,10 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    CGFloat height = !self.navigationController.navigationBar.hidden && self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
-    if (!_isFile && height > 0) {
-        _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, height, self.view.frame.size.width, 2)];
-        _progressProxy = [[CHWebViewProress alloc]init];
-        _progressProxy.webViewProxyDelegate = self;
-        _progressProxy.progressDelegate = self;
-        _mainWebView.delegate = _progressProxy;
-    }else{
-        _mainWebView.delegate = self;
+    if ([self navigationHeight] > 0) {
+        _progressView.hidden = NO;
     }
-    
-    if (_progressView) {
-        [self.view addSubview:_progressView];
-    }
-    [self.mainWebView loadRequest:self.req];
+
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -89,8 +94,6 @@
             }
             return NO;
         }
- 
-
         SEL selector = [CHHtmlConverter fetchFounctionNameWithURL:request];
         if ([self respondsToSelector:selector]) {
             IMP imp = [self methodForSelector:selector];
@@ -102,7 +105,6 @@
                 func(self, selector);
             }
         }
-   
         return NO;
     }
     return YES;
@@ -110,10 +112,13 @@
 
 - (void)updateProgress:(NSProgress *)progress webViewProgress:(CHWebViewProress *)webViewProgress{
     _progressView.progress = progress;
-
+    NSLog(@"progress =%lld",progress.completedUnitCount);
 }
 - (void)completionHref:(NSDictionary *)parameters{
     
+}
+- (CGFloat)navigationHeight{
+   return  !self.navigationController.navigationBarHidden && self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
 }
 
 @end
