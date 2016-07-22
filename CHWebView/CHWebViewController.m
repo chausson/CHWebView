@@ -39,24 +39,9 @@
 
 - (void)initialize{
 
-    CGFloat height = self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
-
     _mainWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0 , self.view.frame.size.width, self.view.frame.size.height)];
+    _mainWebView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.mainWebView];
-    if (!_isFile && height > 0) {
-        _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, height, self.view.frame.size.width, 2)];
-        _progressProxy = [[CHWebViewProress alloc]init];
-        _progressProxy.webViewProxyDelegate = self;
-        _progressProxy.progressDelegate = self;
-        _mainWebView.delegate = _progressProxy;
-    }else{
-        _mainWebView.delegate = self;
-    }
-
-    if (_progressView) {
-        [self.view addSubview:_progressView];
-    }
-    [self.mainWebView loadRequest:self.req];
 
 }
 - (NSURLRequest *)req{
@@ -69,6 +54,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initialize];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    CGFloat height = !self.navigationController.navigationBar.hidden && self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
+    if (!_isFile && height > 0) {
+        _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, height, self.view.frame.size.width, 2)];
+        _progressProxy = [[CHWebViewProress alloc]init];
+        _progressProxy.webViewProxyDelegate = self;
+        _progressProxy.progressDelegate = self;
+        _mainWebView.delegate = _progressProxy;
+    }else{
+        _mainWebView.delegate = self;
+    }
+    
+    if (_progressView) {
+        [self.view addSubview:_progressView];
+    }
+    [self.mainWebView loadRequest:self.req];
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {

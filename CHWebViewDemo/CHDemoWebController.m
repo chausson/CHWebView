@@ -18,4 +18,8 @@
 - (void)completionHref:(NSDictionary *)parameters{
     NSLog(@"href Json = %@",parameters);
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 @end
