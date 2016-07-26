@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.1"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.2"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.default_subspecs = "Core","Progress"
   s.subspec 'Core' do |c|
