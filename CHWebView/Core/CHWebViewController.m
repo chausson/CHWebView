@@ -52,8 +52,9 @@
         _mainWebView.delegate = _progressProxy;
     }else{
         _mainWebView.delegate = self;
-        self.automaticallyAdjustsScrollViewInsets = NO;
+      
     }
+    self.automaticallyAdjustsScrollViewInsets = [self navigationHeight] > 0;
     if (_progressView) {
         [self.view addSubview:_progressView];
     }
@@ -118,7 +119,7 @@
     
 }
 - (CGFloat)navigationHeight{
-   return  !self.navigationController.navigationBarHidden && self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
+   return  !self.navigationController.navigationBar.hidden &&!self.navigationController.navigationBarHidden && self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
 }
 
 @end
