@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "0.2"
+  s.version      = "0.3"
   s.summary      = "BaseWebView For Project Complex"
-  s.description  = "update file path and add subspec on podspec"
+  s.description  = "update file path and fix controller missed"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.2"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.3"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.default_subspecs = "Core","Progress"
   s.subspec 'Core' do |c|
