@@ -14,7 +14,7 @@
 @interface CHWebViewController ()<UIWebViewDelegate,CHWebViewProgressDelegate >
 
 @property (nonatomic ,strong) NSURLRequest *req;
-
+@property (nonatomic ,assign) BOOL hiddenNavtionBar;
 @end
 
 @implementation CHWebViewController{
@@ -26,6 +26,7 @@
 {
     if (self = [super init]) {
         _url = [NSURL URLWithString:url];
+        
     }
     return self;
 }
@@ -36,15 +37,30 @@
     }
     return self;
 }
+- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)without{
+    if (self = [super init]) {
+        _url = [NSURL URLWithString:url];
+        _hiddenNavtionBar = without ;
+    }
+    return self;
+}
 
+- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)without{
+    if (self = [super init]) {
+        _url = [NSURL fileURLWithPath:url];
+        _isFile = YES;
+        _hiddenNavtionBar = without;
+    }
+    return self;
+}
 - (void)initialize{
 
     _mainWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0 , self.view.frame.size.width, self.view.frame.size.height)];
     _mainWebView.backgroundColor = [UIColor whiteColor];
 
     [self.view addSubview:self.mainWebView];
-    if (!_isFile && [self navigationHeight] > 0) {
-        _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, [self navigationHeight], self.view.frame.size.width, 2)];
+    if (!_isFile && ![self isNavigationHidden]) {
+        _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, [self isNavigationHidden]?0:64, self.view.frame.size.width, 2)];
         _progressProxy = [[CHWebViewProress alloc]init];
         _progressProxy.webViewProxyDelegate = self;
         _progressProxy.progressDelegate = self;
@@ -54,7 +70,7 @@
         _mainWebView.delegate = self;
       
     }
-    self.automaticallyAdjustsScrollViewInsets = [self navigationHeight] > 0;
+
     if (_progressView) {
         [self.view addSubview:_progressView];
     }
@@ -74,13 +90,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
+    self.navigationController.navigationBarHidden = [self isNavigationHidden];
+    self.automaticallyAdjustsScrollViewInsets = ![self isNavigationHidden];
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if ([self navigationHeight] > 0) {
-        _progressView.hidden = NO;
-    }
+
+    _progressView.hidden = ![self isNavigationHidden];
+
 
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -121,5 +138,7 @@
 - (CGFloat)navigationHeight{
    return  !self.navigationController.navigationBar.hidden &&!self.navigationController.navigationBarHidden && self.navigationController.navigationBar.isTranslucent && self.navigationController != nil?64:0;
 }
-
+- (BOOL)isNavigationHidden{
+    return _hiddenNavtionBar;
+}
 @end

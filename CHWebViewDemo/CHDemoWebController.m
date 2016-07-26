@@ -18,8 +18,10 @@
 - (void)completionHref:(NSDictionary *)parameters{
     NSLog(@"href Json = %@",parameters);
 }
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-   // [self.navigationController setNavigationBarHidden:YES];
+    self.mainWebView.backgroundColor = [UIColor grayColor];
+    self.navigationController.navigationBarHidden = YES;
 }
 @end
