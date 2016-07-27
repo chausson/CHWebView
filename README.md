@@ -1,13 +1,10 @@
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
-
 ![Platform info](http://img.shields.io/cocoapods/p/CHWebView.svg?style=flat)
-
 ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
 # CHWebView
 封装iOS UIWebView常用功能的基础控件
-
-
+![image](https://github.com/chausson/CHWebView/blob/master/Resource/WebView.gif)
 
 # 安装
 利用pod安装或者下载工程文件把CHWebView的文件夹拖入工程中
@@ -39,7 +36,7 @@ pod 'CHWebView'
 
 ```
 # JS调用OC方法
-[web端需要看下实现的协议说明](https://github.com/chausson/CHNetworking#CHNetworking设计架构图)]
+[][web端需要看下实现的协议说明](https://github.com/chausson/CHWebView/blob/master/Resource/JS调用OC的自定义协议.md)
 
 OC这里需要在子类中实现相应的方法名即可
 ``` object-c
@@ -48,9 +45,6 @@ OC这里需要在子类中实现相应的方法名即可
 }
 - (void)JSDemo{
     NSLog(@"%s",__PRETTY_FUNCTION__);
-}
-- (void)completionHref:(NSDictionary *)parameters{
-    NSLog(@"href Json = %@",parameters);
 }
 ```
 
