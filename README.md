@@ -4,7 +4,7 @@
 
 # CHWebView
 封装iOS UIWebView常用功能的基础控件
-![image](https://github.com/chausson/CHWebView/Resource/WebView.gif)
+![image](https://github.com/chausson/CHWebView/blob/master/Resource/WebView.gif)
 
 # 安装
 利用pod安装或者下载工程文件把CHWebView的文件夹拖入工程中
@@ -36,7 +36,7 @@ pod 'CHWebView'
 
 ```
 # JS调用OC方法
-[][web端需要看下实现的协议说明](https://github.com/chausson/CHWebView/Resource/JS调用OC的自定义协议.md)
+[][web端需要看下实现的协议说明](https://github.com/chausson/CHWebView/blob/master/Resource/JS调用OC的自定义协议.md)
 
 OC这里需要在子类中实现相应的方法名即可
 ``` object-c
