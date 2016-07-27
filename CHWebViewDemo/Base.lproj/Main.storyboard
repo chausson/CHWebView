@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="30" id="9hi-6g-9tM"/>
                                     <constraint firstAttribute="width" constant="74" id="Zg5-tD-qYR"/>
                                 </constraints>
-                                <state key="normal" title="ALIBaBa"/>
+                                <state key="normal" title="BaiDu"/>
                                 <connections>
                                     <action selector="alibaba:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfM-8D-WqI"/>
                                 </connections>

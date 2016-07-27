@@ -23,9 +23,9 @@
  */
 - (instancetype)initWithFile:(NSString *)url;
 
-- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)without;
+- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 
-- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)without;
+- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 
 /**
  * @brief html前端利用协议中href跳转完后的事件

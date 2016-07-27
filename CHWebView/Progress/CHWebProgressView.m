@@ -18,10 +18,10 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        _springSpeed = 0.3;
-        _duration = 0.65;
-        _springVelocity = 0.7;
-        _fadeOutDelay = 0.7f;
+        _springSpeed = 0.4;
+        _duration = 0.5;
+        _springVelocity = 0.5;
+        _fadeOutDelay = 0.5f;
         self.userInteractionEnabled = NO;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _progressBarView = [[UIView alloc] initWithFrame:self.bounds];

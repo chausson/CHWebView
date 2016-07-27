@@ -37,19 +37,19 @@
     }
     return self;
 }
-- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)without{
+- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden{
     if (self = [super init]) {
         _url = [NSURL URLWithString:url];
-        _hiddenNavtionBar = without ;
+        _hiddenNavtionBar = hidden ;
     }
     return self;
 }
 
-- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)without{
+- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden{
     if (self = [super init]) {
         _url = [NSURL fileURLWithPath:url];
         _isFile = YES;
-        _hiddenNavtionBar = without;
+        _hiddenNavtionBar = hidden;
     }
     return self;
 }
@@ -64,7 +64,6 @@
         _progressProxy = [[CHWebViewProress alloc]init];
         _progressProxy.webViewProxyDelegate = self;
         _progressProxy.progressDelegate = self;
-        _progressView.hidden = YES;
         _mainWebView.delegate = _progressProxy;
     }else{
         _mainWebView.delegate = self;
@@ -95,9 +94,6 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-
-    _progressView.hidden = ![self isNavigationHidden];
-
 
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -130,7 +126,6 @@
 
 - (void)updateProgress:(NSProgress *)progress webViewProgress:(CHWebViewProress *)webViewProgress{
     _progressView.progress = progress;
-    NSLog(@"progress =%lld",progress.completedUnitCount);
 }
 - (void)completionHref:(NSDictionary *)parameters{
     
