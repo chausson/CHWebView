@@ -1,4 +1,4 @@
-[![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView
+[![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
 ![Platform info](http://img.shields.io/cocoapods/p/CHWebView.svg?style=flat)
 ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
