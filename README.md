@@ -4,8 +4,7 @@
 
 # CHWebView
 封装iOS UIWebView常用功能的基础控件
-[Demo展示](https://github.com/chausson/CHWebView/Resource/WebView.gif)
-
+![image](https://github.com/chausson/CHWebView/Resource/WebView.gif)
 
 # 安装
 利用pod安装或者下载工程文件把CHWebView的文件夹拖入工程中
