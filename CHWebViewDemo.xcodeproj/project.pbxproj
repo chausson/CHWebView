@@ -11,7 +11,6 @@
 		0613BD5D1D41EFB2009ECF80 /* CHDemoWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD5C1D41EFB2009ECF80 /* CHDemoWebController.m */; };
 		0613BD6B1D420FC5009ECF80 /* CHWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD661D420FC5009ECF80 /* CHWebProgressView.m */; };
 		0613BD6C1D420FC5009ECF80 /* CHWebViewProress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD681D420FC5009ECF80 /* CHWebViewProress.m */; };
-		0613BD701D421365009ECF80 /* CHHtmlConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD6F1D421365009ECF80 /* CHHtmlConverter.m */; };
 		061565C01D54B28B00404CD0 /* UIWebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 061565BE1D54B28A00404CD0 /* UIWebViewDemo.html */; };
 		061565C11D54B28B00404CD0 /* WKWebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 061565BF1D54B28B00404CD0 /* WKWebViewDemo.html */; };
 		06AD276F1D40BF24003ECF03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD276E1D40BF24003ECF03 /* main.m */; };
@@ -31,8 +30,6 @@
 		0613BD661D420FC5009ECF80 /* CHWebProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebProgressView.m; sourceTree = "<group>"; };
 		0613BD671D420FC5009ECF80 /* CHWebViewProress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewProress.h; sourceTree = "<group>"; };
 		0613BD681D420FC5009ECF80 /* CHWebViewProress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewProress.m; sourceTree = "<group>"; };
-		0613BD6E1D421365009ECF80 /* CHHtmlConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHtmlConverter.h; sourceTree = "<group>"; };
-		0613BD6F1D421365009ECF80 /* CHHtmlConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHtmlConverter.m; sourceTree = "<group>"; };
 		061565BE1D54B28A00404CD0 /* UIWebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UIWebViewDemo.html; sourceTree = "<group>"; };
 		061565BF1D54B28B00404CD0 /* WKWebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewDemo.html; sourceTree = "<group>"; };
 		06AD276A1D40BF23003ECF03 /* CHWebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHWebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,8 +80,6 @@
 			children = (
 				0608F1E81D4748A900CBA2D1 /* CHWebViewController.h */,
 				0608F1E91D4748A900CBA2D1 /* CHWebViewController.m */,
-				0613BD6E1D421365009ECF80 /* CHHtmlConverter.h */,
-				0613BD6F1D421365009ECF80 /* CHHtmlConverter.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -210,7 +205,6 @@
 				0613BD6B1D420FC5009ECF80 /* CHWebProgressView.m in Sources */,
 				0613BD5D1D41EFB2009ECF80 /* CHDemoWebController.m in Sources */,
 				06AD27751D40BF24003ECF03 /* ViewController.m in Sources */,
-				0613BD701D421365009ECF80 /* CHHtmlConverter.m in Sources */,
 				06AD27721D40BF24003ECF03 /* AppDelegate.m in Sources */,
 				06AD276F1D40BF24003ECF03 /* main.m in Sources */,
 				0613BD6C1D420FC5009ECF80 /* CHWebViewProress.m in Sources */,

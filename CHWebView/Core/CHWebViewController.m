@@ -9,7 +9,6 @@
 #import "CHWebViewController.h"
 #import "CHWebViewProress.h"
 #import "CHWebProgressView.h"
-#import "CHHtmlConverter.h"
 
 @interface CHWebViewController ()<UIWebViewDelegate,CHWebViewProgressDelegate ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 
