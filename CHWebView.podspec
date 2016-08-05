@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "0.6"
+  s.version      = "0.7"
   s.summary      = "BaseWebView For Project Complex"
-  s.description  = "edit demo and insert gif for projectDemo"
+  s.description  = "Support WKWebView and also Support JS Call OC Method"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.6"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "0.7"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.default_subspecs = "Core","Progress"
   s.subspec 'Core' do |c|
