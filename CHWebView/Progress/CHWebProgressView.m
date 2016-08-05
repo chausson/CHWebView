@@ -16,7 +16,6 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    
     if (self) {
         _springSpeed = 0.4;
         _duration = 0.5;
@@ -43,7 +42,6 @@
 - (void)setProgress:(NSProgress *)progress{
     _progress = progress;
     float fProgress = (float)progress.completedUnitCount/(float)progress.totalUnitCount;
-    NSLog(@"f=%g",fProgress);
     if (fProgress >= 1.0) {
         [UIView animateWithDuration:_duration delay:_fadeOutDelay options:UIViewAnimationOptionCurveEaseInOut animations:^{
             CGRect frame = _progressBarView.frame;

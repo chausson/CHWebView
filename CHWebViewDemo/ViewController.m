@@ -18,12 +18,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-- (IBAction)alibaba:(UIButton *)sender {
+- (IBAction)baidu:(UIButton *)sender {
     CHWebViewController *web = [[CHWebViewController alloc]initWithURL:@"https://www.baidu.com"];
+//    web.useUIWebView = YES;
     [self.navigationController pushViewController:web animated:YES];
 }
-- (IBAction)jsdemo:(UIButton *)sender {
-    CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"webDemo" ofType:@"html"] withOutNavtionBar:YES];
+- (IBAction)wkWebViewDemo:(UIButton *)sender {
+    CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"WKWebViewDemo" ofType:@"html"] withOutNavtionBar:NO];
+    [self.navigationController pushViewController:web animated:YES];
+    
+}
+- (IBAction)uiWebViewDemo:(UIButton *)sender {
+    CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"UIWebViewDemo" ofType:@"html"] withOutNavtionBar:NO];
+      web.useUIWebView = YES;
     [self.navigationController pushViewController:web animated:YES];
     
 }

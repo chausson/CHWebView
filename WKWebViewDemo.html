@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>webDemo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <style type="text/css">
+        a{
+            font-size:12px;
+            color:red;
+            display:flex;
+            width:33%;
+            height:50px;
+            line-height:50;
+            float:left;
+            text-align:center;
+        }
+    </style>
+    <script type="text/javascript">
+    function nativeFounction() {
+    var message = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
+        window.webkit.messageHandlers.native.postMessage(message);
+    }
+    function showUIFuction(){
+        window.webkit.messageHandlers.show.postMessage('');
+    }
+    function callFromOC(value) {
+        alert(value)
+    }
+    </script>
+</head>
+<body>
+    <button onClick="nativeFounction()" style=""> call OC function native</button>
+    <button onClick="showUIFuction()" style=""> call OC function show</button>
+</body>
+</html>

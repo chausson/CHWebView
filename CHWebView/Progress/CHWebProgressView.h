@@ -11,7 +11,7 @@
 @interface CHWebProgressView : UIView
 @property (assign , nonatomic)float springVelocity;
 @property (assign , nonatomic)float springSpeed;
-@property (strong , nonatomic)NSProgress *progress;
+@property (strong , nonatomic)NSProgress *progress; // change Progress  
 @property (assign , nonatomic)float duration;
 @property (strong , nonatomic)UIColor *color;
 @end

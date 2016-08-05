@@ -9,19 +9,38 @@
 #import "CHDemoWebController.h"
 
 @implementation CHDemoWebController
-- (void)action:(NSDictionary *)dic{
-    NSLog(@"dic=%@",dic);
+
+- (void)native:(NSDictionary *)dic{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"I got message from js about =%@",dic] preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }]];
+    [self presentViewController:alert animated:YES completion:NULL];
 }
-- (void)JSDemo{
-    NSLog(@"%s",__PRETTY_FUNCTION__);
-}
-- (void)completionHref:(NSDictionary *)parameters{
-    NSLog(@"href Json = %@",parameters);
+- (void)show:(id)body{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"I called By show"] preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:NULL];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.mainWebView.backgroundColor = [UIColor grayColor];
-    self.navigationController.navigationBarHidden = YES;
+    UIButton *callJS = [UIButton buttonWithType:UIButtonTypeCustom];
+    callJS.frame = CGRectMake(20, 150, 50, 50);
+    [callJS setTitle:@"callJS" forState:UIControlStateNormal];
+    [callJS setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [callJS addTarget:self action:@selector(callJS) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:callJS];
+
+}
+- (void)callJS{
+    [self invokeJavaScript:@"callFromOC('ocCallJS')"]; 
+}
+
+
+- (NSArray<NSString *> *)registerJavascriptName{
+    return @[@"native",@"show"];
 }
 @end

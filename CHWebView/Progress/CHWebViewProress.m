@@ -131,7 +131,6 @@ const float FinalProgressValue = 0.9f;
     if ([_webViewProxyDelegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [_webViewProxyDelegate webViewDidFinishLoad:webView];
     }
-    
     _loadingCount--;
     [self incrementProgress];
     
