@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)baidu:(UIButton *)sender {
-    CHWebViewController *web = [[CHWebViewController alloc]initWithURL:@"https://www.baidu.com"];
+    CHWebViewController *web = [[CHWebViewController alloc]initWithURL:@"https://www.alibaba.com"];
 //    web.useUIWebView = YES;
     [self.navigationController pushViewController:web animated:YES];
 }

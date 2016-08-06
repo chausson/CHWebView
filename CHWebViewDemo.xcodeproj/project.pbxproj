@@ -13,6 +13,8 @@
 		0613BD6C1D420FC5009ECF80 /* CHWebViewProress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0613BD681D420FC5009ECF80 /* CHWebViewProress.m */; };
 		061565C01D54B28B00404CD0 /* UIWebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 061565BE1D54B28A00404CD0 /* UIWebViewDemo.html */; };
 		061565C11D54B28B00404CD0 /* WKWebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 061565BF1D54B28B00404CD0 /* WKWebViewDemo.html */; };
+		061565C51D54B88800404CD0 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061565C41D54B88800404CD0 /* JavaScriptCore.framework */; };
+		061565C71D54B88B00404CD0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061565C61D54B88B00404CD0 /* WebKit.framework */; };
 		06AD276F1D40BF24003ECF03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD276E1D40BF24003ECF03 /* main.m */; };
 		06AD27721D40BF24003ECF03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD27711D40BF24003ECF03 /* AppDelegate.m */; };
 		06AD27751D40BF24003ECF03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD27741D40BF24003ECF03 /* ViewController.m */; };
@@ -32,6 +34,8 @@
 		0613BD681D420FC5009ECF80 /* CHWebViewProress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewProress.m; sourceTree = "<group>"; };
 		061565BE1D54B28A00404CD0 /* UIWebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UIWebViewDemo.html; sourceTree = "<group>"; };
 		061565BF1D54B28B00404CD0 /* WKWebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewDemo.html; sourceTree = "<group>"; };
+		061565C41D54B88800404CD0 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		061565C61D54B88B00404CD0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		06AD276A1D40BF23003ECF03 /* CHWebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHWebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AD276E1D40BF24003ECF03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06AD27701D40BF24003ECF03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				061565C71D54B88B00404CD0 /* WebKit.framework in Frameworks */,
+				061565C51D54B88800404CD0 /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,8 @@
 		06AD27611D40BF23003ECF03 = {
 			isa = PBXGroup;
 			children = (
+				061565C61D54B88B00404CD0 /* WebKit.framework */,
+				061565C41D54B88800404CD0 /* JavaScriptCore.framework */,
 				061565BE1D54B28A00404CD0 /* UIWebViewDemo.html */,
 				061565BF1D54B28B00404CD0 /* WKWebViewDemo.html */,
 				0613BD5E1D420FC5009ECF80 /* CHWebView */,
