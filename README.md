@@ -3,32 +3,32 @@
 ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
 # CHWebView
-封装iOS UIWebView常用功能的基础控件
+CHWebView is a lightweigh object-c implemented basecontroller for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
 
 ![image](https://github.com/chausson/CHWebView/blob/master/Resource/WebView.gif)
 
-# 安装
-利用pod安装或者下载工程文件把CHWebView的文件夹拖入工程中
+# Install
+You can download zip and drag CHWebView File in your project,also you can install with pod.
 ``` object-c
 pod 'CHWebView'
-
 ```
-# 实现功能
-* 加载web页面时显示进度条
-* 初始化方法拓展增加加载本地文件和远端文件两种方式
-* JS调用OC方法封装.
 
-# 使用说明
-利用初始化方法加载html,如需要自定义的直接继承CHWebViewController.
-如果不需要导航栏在without中设置Yes
+# Features
+* Every controller base on CHWebViewContoller will display progreesview when you loading or use CHWebViewContoller init .
+* You can load local resource file in your project more than remote url.
+* It will be quick to call js function also convenience when js calling native code.
+* Support WKWebView and UIWebView.
+
+# Requirements
+* iOS 8.0+, 
+* Xcode 7.3 or above
+* JavaScriptCore
+* WebKit
+
+# Init WbeView
 ``` object-c
-/**
- * @brief 根据远端URL地址加载
- */
 - (instancetype)initWithURL:(NSString *)url;
-/**
- * @brief 根据本地文件路径加载
- */
+
 - (instancetype)initWithFile:(NSString *)url;
 
 - (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden;
@@ -36,16 +36,41 @@ pod 'CHWebView'
 - (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 
 ```
-# JS调用OC方法
-[][web端需要看下实现的协议说明](https://github.com/chausson/CHWebView/blob/master/Resource/JS调用OC的自定义协议.md)
-
-OC这里需要在子类中实现相应的方法名即可
+# JS Call Object-C
+## Object-C Code
 ``` object-c
-- (void)action:(NSDictionary *)dic{
-    NSLog(@"dic=%@",dic);
+- (NSArray<NSString *> *)registerJavascriptName{
+    return @[@"native",@"show"];
 }
-- (void)JSDemo{
-    NSLog(@"%s",__PRETTY_FUNCTION__);
+- (void)native:(NSDictionary *)dic{
 }
+- (void)show:(id)body{
+}
+```
+## JavaScript Code for WKWebKit
+``` javascript
+    function nativeFounction() {
+    var message = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
+        window.webkit.messageHandlers.native.postMessage(message);
+    }
+    function showUIFuction(){
+        window.webkit.messageHandlers.show.postMessage('');
+    }
+```
+## JavaScript Code for UIWebView
+``` javascript
+    function nativeFounction() {
+    var message = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
+        native(message);
+    }
+    function showUIFuction(){
+        show('call OC function Show')
+    }
+```
+# Object-C Call JavaScript
+``` object-c
+- (void)invokeJavaScript:(NSString *)function;
+
+- (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler;
 ```
 
