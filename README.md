@@ -9,7 +9,7 @@ CHWebView is a lightweigh object-c implemented basecontroller for webview.It's c
 
 # Install
 You can download zip and drag CHWebView File in your project,also you can install with pod.
-``` object-c
+``` bash
 pod 'CHWebView'
 ```
 
@@ -26,7 +26,7 @@ pod 'CHWebView'
 * WebKit
 
 # Init WbeView
-``` object-c
+``` obj-c
 - (instancetype)initWithURL:(NSString *)url;
 
 - (instancetype)initWithFile:(NSString *)url;
@@ -38,7 +38,7 @@ pod 'CHWebView'
 ```
 # JS Call Object-C
 ## Object-C Code
-``` object-c
+``` obj-c
 - (NSArray<NSString *> *)registerJavascriptName{
     return @[@"native",@"show"];
 }
@@ -68,7 +68,7 @@ pod 'CHWebView'
     }
 ```
 # Object-C Call JavaScript
-``` object-c
+``` obj-c
 - (void)invokeJavaScript:(NSString *)function;
 
 - (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler;
