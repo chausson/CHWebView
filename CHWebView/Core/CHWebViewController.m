@@ -219,6 +219,9 @@
         [prgress setCompletedUnitCount:100];
         _progressView.progress = prgress;
     }
+    if(self.title.length == 0){
+        self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    }
     self.context=[_uiWebView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     [self.registerJavascriptName enumerateObjectsUsingBlock:^(NSString * _Nonnull name, NSUInteger idx, BOOL * _Nonnull stop) {
         __weak typeof(self) weakSelf = self;
@@ -233,6 +236,13 @@
 
 - (void)updateProgress:(NSProgress *)progress webViewProgress:(CHWebViewProress *)webViewProgress{
     _progressView.progress = progress;
+}
+- (UIView *)webView{
+    if (_uiWebView) {
+        return _uiWebView;
+    }else{
+        return _wkWebView;
+    }
 }
 #pragma makr Private
 - (void)invokeIMPFunction:(id)body name:(NSString *)name{
@@ -262,9 +272,6 @@
     }else{
         _useUIWebView = useUIWebView;
     }
-}
-- (void)completionHref:(NSDictionary *)parameters{
-    
 }
 - (BOOL)isNavigationHidden{
     return _hiddenNavtionBar;
