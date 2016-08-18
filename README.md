@@ -1,5 +1,5 @@
 # CHWebView
-CHWebView is a lightweigh object-c implemented basecontroller for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
+CHWebView is a lightweigh object-c implemented  for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
 
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
 ![Platform info](http://img.shields.io/cocoapods/p/CHWebView.svg?style=flat)
