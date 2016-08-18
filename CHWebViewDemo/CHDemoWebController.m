@@ -17,7 +17,7 @@
     }]];
     [self presentViewController:alert animated:YES completion:NULL];
 }
-- (void)show:(id)body{
+- (void)show{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"I called By show"] preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -28,8 +28,8 @@
 {
     [super viewWillAppear:animated];
     UIButton *callJS = [UIButton buttonWithType:UIButtonTypeCustom];
-    callJS.frame = CGRectMake(20, 150, 50, 50);
-    [callJS setTitle:@"callJS" forState:UIControlStateNormal];
+    callJS.frame = CGRectMake(10, 100, 150, 100);
+    [callJS setTitle:@"invokeJavaScript" forState:UIControlStateNormal];
     [callJS setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [callJS addTarget:self action:@selector(callJS) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:callJS];

@@ -6,8 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
-#import <JavaScriptCore/JavaScriptCore.h>
+#import "CHWebView.h"
 
 @interface CHWebViewController : UIViewController
 
@@ -15,7 +14,7 @@
 
 @property (nonatomic, strong)UIColor *tintColor;
 
-@property (nonatomic, readonly)UIView *webView;// defult is WKWebView ,WKWebView have't cache ,you can choose UIWebView before ViewDidLoad.
+@property (nonatomic, readonly)CHWebView *webView;
 @property (nonatomic, assign ,getter= isUseUIWebView)BOOL useUIWebView;
 
 @property (nonatomic, assign ,getter= isHiddenProgressView)BOOL hiddenProgressView; // defult is NO ,if you set Yes the progressBar will not show .
