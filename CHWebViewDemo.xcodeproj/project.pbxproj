@@ -71,7 +71,7 @@
 		0613BD5E1D420FC5009ECF80 /* CHWebView */ = {
 			isa = PBXGroup;
 			children = (
-				066EE1941D6598C0006B8886 /* Resourse */,
+				066EE1941D6598C0006B8886 /* Resource */,
 				0613BD6D1D421365009ECF80 /* Core */,
 				0613BD621D420FC5009ECF80 /* Progress */,
 			);
@@ -100,12 +100,13 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		066EE1941D6598C0006B8886 /* Resourse */ = {
+		066EE1941D6598C0006B8886 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				066EE1971D6598FB006B8886 /* WebViewDemo.html */,
 				066EE1951D6598C0006B8886 /* nativehelper.js */,
 			);
+			name = Resource;
 			path = Resourse;
 			sourceTree = "<group>";
 		};
