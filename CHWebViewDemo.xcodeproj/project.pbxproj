@@ -16,8 +16,6 @@
 		061565C71D54B88B00404CD0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061565C61D54B88B00404CD0 /* WebKit.framework */; };
 		066EE1911D654E09006B8886 /* CHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066EE1901D654E09006B8886 /* CHWebView.m */; };
 		066EE1931D658653006B8886 /* nativehelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 066EE1921D658653006B8886 /* nativehelper.js */; };
-		066EE1961D6598C0006B8886 /* nativehelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 066EE1951D6598C0006B8886 /* nativehelper.js */; };
-		066EE1981D6598FB006B8886 /* WebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 066EE1971D6598FB006B8886 /* WebViewDemo.html */; };
 		06AD276F1D40BF24003ECF03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD276E1D40BF24003ECF03 /* main.m */; };
 		06AD27721D40BF24003ECF03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD27711D40BF24003ECF03 /* AppDelegate.m */; };
 		06AD27751D40BF24003ECF03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD27741D40BF24003ECF03 /* ViewController.m */; };
@@ -41,8 +39,6 @@
 		066EE18F1D654E09006B8886 /* CHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebView.h; sourceTree = "<group>"; };
 		066EE1901D654E09006B8886 /* CHWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebView.m; sourceTree = "<group>"; };
 		066EE1921D658653006B8886 /* nativehelper.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nativehelper.js; sourceTree = "<group>"; };
-		066EE1951D6598C0006B8886 /* nativehelper.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nativehelper.js; sourceTree = "<group>"; };
-		066EE1971D6598FB006B8886 /* WebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewDemo.html; sourceTree = "<group>"; };
 		06AD276A1D40BF23003ECF03 /* CHWebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHWebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AD276E1D40BF24003ECF03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06AD27701D40BF24003ECF03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,7 +67,6 @@
 		0613BD5E1D420FC5009ECF80 /* CHWebView */ = {
 			isa = PBXGroup;
 			children = (
-				066EE1941D6598C0006B8886 /* Resource */,
 				0613BD6D1D421365009ECF80 /* Core */,
 				0613BD621D420FC5009ECF80 /* Progress */,
 			);
@@ -98,16 +93,6 @@
 				066EE1901D654E09006B8886 /* CHWebView.m */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		066EE1941D6598C0006B8886 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				066EE1971D6598FB006B8886 /* WebViewDemo.html */,
-				066EE1951D6598C0006B8886 /* nativehelper.js */,
-			);
-			name = Resource;
-			path = Resourse;
 			sourceTree = "<group>";
 		};
 		06AD27611D40BF23003ECF03 = {
@@ -217,9 +202,7 @@
 				06AD277D1D40BF25003ECF03 /* LaunchScreen.storyboard in Resources */,
 				061565C11D54B28B00404CD0 /* WebViewDemo.html in Resources */,
 				06AD277A1D40BF25003ECF03 /* Assets.xcassets in Resources */,
-				066EE1961D6598C0006B8886 /* nativehelper.js in Resources */,
 				066EE1931D658653006B8886 /* nativehelper.js in Resources */,
-				066EE1981D6598FB006B8886 /* WebViewDemo.html in Resources */,
 				06AD27781D40BF24003ECF03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

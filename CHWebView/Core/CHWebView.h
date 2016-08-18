@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, CHWebViewNavigationType) {
     CHWebViewNavigationTypeOther
 };
 @protocol CHWebViewDelegate <NSObject>
+@optional
 - (BOOL)webView:(CHWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(CHWebViewNavigationType)navigationType;
 - (void)webView:(CHWebView *)webVie  updateProgress:(NSProgress *)progress;
 - (void)webView:(CHWebView *)webView withError:(NSError *)error;
