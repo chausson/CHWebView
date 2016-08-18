@@ -1,23 +1,24 @@
 # CHWebView
+CHWebView is a lightweigh object-c implemented basecontroller for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
+
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
 ![Platform info](http://img.shields.io/cocoapods/p/CHWebView.svg?style=flat)
 ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
-CHWebView is a lightweigh object-c implemented basecontroller for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
-
 ![image](https://github.com/chausson/CHWebView/blob/master/Resource/WebView.gif)
-
-# Install
-You can download zip and drag CHWebView File in your project,also you can install with pod.
-``` bash
-pod 'CHWebView'
-```
 
 # Features
 * Every controller base on CHWebViewContoller will display progreesview when you loading or use CHWebViewContoller init .
 * You can load local resource file in your project more than remote url.
 * Coding JavaScript call native method in 1 line code.
 * Support WKWebView and UIWebView.
+* 
+
+# Install
+You can download zip and drag CHWebView File in your project,also you can install with pod.
+``` bash
+pod 'CHWebView'
+```
 
 # Requirements
 * iOS 8.0+, 
@@ -36,7 +37,6 @@ pod 'CHWebView'
 - (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 
 ```
-# JS Call Native Code
 ## Object-C Code
 ``` obj-c
 - (NSArray<NSString *> *)registerJavascriptName{
