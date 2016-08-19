@@ -71,7 +71,7 @@
 
     _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, [self isNavigationHidden]?0:64, self.view.frame.size.width, 2)];
     if(_tintColor){
-        _progressView.tintColor = _tintColor;
+        _progressView.color = _tintColor;
     }
     if([self isNavigationHidden]){
         self.automaticallyAdjustsScrollViewInsets = NO;
