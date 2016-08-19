@@ -56,21 +56,23 @@ pod 'CHWebView'
 ## OC代码的实现需要注册名称和注册方法接收的对象,如果继承CHWebViewController则只需要实现注册名称,Controller默认为接收对象。
 ``` obj-c
 - (NSArray<NSString *> *)registerJavascriptName{
-    return @[@"show"];
+    return @[@"fetchMessage",@"show"];
 }
 - (NSObject *)registerJavaScriptHandler{
     return self;
+}
+- (void)fetchMessage:(NSDictionary *)dic{
 }
 - (void)show:(NSDictionary *)dic{
 
 }
 ```
-## JS代码的实现,为了统一JS的调用方式,设计的时候没有通过OC去注册一个JS对象，而是选择导入一段JS在这其中使用nativeBridge对象。需要先导入[nativehelper.js]()文件，
+## JS代码的实现,为了统一JS的对象UIWebView和WKWebView以及Android的API,设计的时候没有通过OC去注册一个JS对象，而是选择导入一段JS在这其中使用nativeBridge对象来增加自定义性。需要先导入[nativehelper.js](https://github.com/chausson/CHWebView/blob/master/nativehelper.js)文件就可以调用nativeBridge对象。该对象可以传入两个参数第一个是方法名，第二个是该方法接收的参数,安卓实现中必须先注册一个messageHandles对象。
 ``` javascript
    function nativeFounction() {
         
        var obj = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
-       window.nativeBridge('native',obj)
+       window.nativeBridge('fetchMessage',obj)
    }
     function showUIFuction(){
        window.nativeBridge('show')
