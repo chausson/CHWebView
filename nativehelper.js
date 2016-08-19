@@ -1,4 +1,4 @@
-window.nativeFunc = function(name,message){
+window.nativeBridge = function(name,message){
     var iosDevice = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
     var androidDevice = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr');
     if(iosDevice){

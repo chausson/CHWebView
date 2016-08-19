@@ -10,7 +10,7 @@
 
 @implementation CHDemoWebController
 
-- (void)native:(NSDictionary *)dic{
+- (void)fetchMessage:(NSDictionary *)dic{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"I got message from js about =%@",dic] preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
@@ -41,6 +41,6 @@
 
 
 - (NSArray<NSString *> *)registerJavascriptName{
-    return @[@"native",@"show"];
+    return @[@"fetchMessage",@"show"];
 }
 @end

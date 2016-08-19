@@ -18,8 +18,6 @@
 
 @implementation CHWebViewController{
     BOOL _isFile;
-    WKWebView *_wkWebView;
-    UIWebView *_uiWebView;
     CHWebProgressView *_progressView;
     CHWebViewProress *_progressProxy;
 }

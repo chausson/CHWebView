@@ -17,10 +17,10 @@
 <script type="text/javascript">
    function nativeFounction() {
        var obj = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
-       nativeFunc('native',obj)
+       window.nativeBridge('fetchMessage',obj)
    }
     function showUIFuction(){
-       nativeFunc('show')
+       window.nativeBridge('show')
     }
     function callFromOC(value) {
        alert(value)
