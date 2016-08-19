@@ -25,7 +25,23 @@ pod 'CHWebView'
 * JavaScriptCore
 * WebKit
 
-# 利用CHWebViewController初始化
+
+# CHWebView初始化
+``` obj-c
+    CHWebView *webView = [[CHWebView alloc]initWithFrame:rect];
+    [webView loadRequest:self.request];
+    webView.delegate = self;
+    [self.view addSubview:webView];
+
+```
+## 如果你想使用UIWebView,调用一下方法
+``` obj-c
+- ( instancetype)initWithUIWebView; 
+- ( instancetype)initWithUIWebView:(CGRect)frame;
+
+```
+
+# 也可以通过CHWebViewController初始化
 ``` obj-c
 - (instancetype)initWithURL:(NSString *)url;
 
@@ -36,33 +52,31 @@ pod 'CHWebView'
 - (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 
 ```
-## Object-C Code
+# JS调用OC代码
+## OC代码的实现需要注册名称和注册方法接收的对象,如果继承CHWebViewController则只需要实现注册名称,Controller默认为接收对象。
 ``` obj-c
 - (NSArray<NSString *> *)registerJavascriptName{
-    return @[@"native",@"show"];
+    return @[@"show"];
 }
-- (void)native:(NSDictionary *)dic{
+- (NSObject *)registerJavaScriptHandler{
+    return self;
 }
-- (void)show:(id)body{
+- (void)show:(NSDictionary *)dic{
+
 }
 ```
-# JavaScript Code 
-First of all you should import the nativehelper.js in file resouse/nativehelper.js then you can found window.nativeFunc object .
-window.nativeFunc({f},{j})
-@parameter f is native method name maybe it's named show or something else,you can defind it.
-@parameter j is parameter used by method.
-
+## JS代码的实现,为了统一JS的调用方式,设计的时候没有通过OC去注册一个JS对象，而是选择导入一段JS在这其中使用nativeBridge对象。需要先导入[nativehelper.js]()文件，
 ``` javascript
    function nativeFounction() {
         
        var obj = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
-       nativeFunc('native',obj)
+       window.nativeBridge('native',obj)
    }
     function showUIFuction(){
-       nativeFunc('show')
+       window.nativeBridge('show')
     }
 ```
-# Object-C Call JavaScript
+# Object-C 调用 JS
 ``` obj-c
 - (void)invokeJavaScript:(NSString *)function;
 
