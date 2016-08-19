@@ -1,5 +1,5 @@
 # CHWebView
-CHWebView is a lightweigh object-c implemented  for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
+CHWebView 是一个基于OC代码实现的WebView轻量级组件,适配UIWebView和WKWebView的API封装成统一的类去使用,并且在加载网页的时候提供进度条,同时简化JS与OC调用的方式。
 
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
 ![Platform info](http://img.shields.io/cocoapods/p/CHWebView.svg?style=flat)
@@ -7,26 +7,25 @@ CHWebView is a lightweigh object-c implemented  for webview.It's convenient to u
 
 ![image](https://github.com/chausson/CHWebView/blob/master/Resource/WebView.gif)
 
-# Features
-* Every controller base on CHWebViewContoller will display progreesview when you loading or use CHWebViewContoller init .
-* You can load local resource file in your project more than remote url.
-* Coding JavaScript call native method in 1 line code.
-* Support WKWebView and UIWebView.
-* 
+# 功能
+* 自如的切换WKWebView以及UIWebView的使用
+* 提供了网页加载进度条
+* 利用一行代码实现JS与OC和Android的交互
+* 提供基类控制器方便快捷的加载网页
 
-# Install
-You can download zip and drag CHWebView File in your project,also you can install with pod.
+# 安装
+目前支持POD安装,或者可以实现下载project将CHWebView文件夹拖入你的工程中
 ``` bash
 pod 'CHWebView'
 ```
 
-# Requirements
+# 要求
 * iOS 8.0+, 
 * Xcode 7.3 or above
 * JavaScriptCore
 * WebKit
 
-# Init WbeView
+# 利用CHWebViewController初始化
 ``` obj-c
 - (instancetype)initWithURL:(NSString *)url;
 
