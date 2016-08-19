@@ -1,4 +1,5 @@
 # CHWebView
+## [CHWebView 中文使用说明文档](https://github.com/chausson/CHWebView/tree/master/ChineseMd)
 CHWebView is a lightweigh object-c implemented  for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
 
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
