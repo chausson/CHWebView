@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "1.5"
+  s.version      = "1.6"
   s.summary      = "WebView component,progress ,javascript "
-  s.description  = "Edit demo project and support local register nativehelper j "
+  s.description  = "update podspec and pod resource file path"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.4"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.6"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.frameworks = 'WebKit', 'JavaScriptCore'
-  s.default_subspecs = "Core","Progress","JavaScript"
+  s.default_subspecs = "Core","Progress"
   s.subspec 'Core' do |c|
    c.source_files = "CHWebView/Core"
    c.dependency "CHWebView/Progress"
@@ -19,7 +19,5 @@ Pod::Spec.new do |s|
   s.subspec 'Progress' do |p|
    p.source_files = "CHWebView/Progress"
   end
-  s.subspec 'JavaScript' do |j|
-   j.resources = "CHWebView/JavaScript/nativehelper.js"
-  end
+  s.resources = "CHWebView/JavaScript/nativehelper.js"
 end
