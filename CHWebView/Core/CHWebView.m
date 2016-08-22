@@ -21,7 +21,6 @@
 #endif
 @end
 @implementation CHWebView
-
 - (instancetype)init
 {
     self = [super init];
@@ -204,6 +203,9 @@
             [web.configuration.userContentController addScriptMessageHandler:self name:name];
         }];
     }
+    if (self.isAllowNativeHelperJS){
+        [self registerNativeHelperJS];
+    }
     if ([self.delegate respondsToSelector:@selector(webViewDidFinshLoad:)]) {
         [self.delegate webViewDidFinshLoad:self];
     }
@@ -243,6 +245,10 @@
                 [strongSelf invokeIMPFunction:body name:name];
             };
         }];
+        if (self.isAllowNativeHelperJS){
+            [self registerNativeHelperJS];
+        }
+
         [self.delegate webViewDidFinshLoad:self];
         
     }
@@ -294,6 +300,7 @@
     webView.UIDelegate = self;
     webView.navigationDelegate = self;
     webView.backgroundColor = [UIColor whiteColor];
+    _allowNativeHelperJS = YES;
     [self addSubview:webView];
     [self registerForKVO];
     
@@ -304,6 +311,7 @@
     _progressProxy.progressDelegate = self;
     webView.delegate = _progressProxy;
     webView.backgroundColor = [UIColor whiteColor];
+    _allowNativeHelperJS = YES;
     [self addSubview:webView];
 }
 - (UIViewController *)fetchVC{
@@ -332,6 +340,13 @@
         result = window.rootViewController;
     
     return result;
+}
+- (void)registerNativeHelperJS{
+    NSString *file = [[NSBundle mainBundle]pathForResource:@"nativehelper" ofType:@"js"];
+    if (file) {
+        NSString *js = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
+        [self invokeJavaScript:js];
+    }
 }
 - (void)updateUIForWKWebView:(WKWebView *)web {
     NSProgress *progress = [NSProgress progressWithTotalUnitCount:100];

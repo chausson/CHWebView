@@ -17,22 +17,19 @@
 <script type="text/javascript">
    function nativeFounction() {
        var obj = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
-       window.nativeBridge('fetchMessage',obj)
+       window.NativeBridge('fetchMessage',obj)
    }
     function showUIFuction(){
-       window.nativeBridge('show')
+       window.NativeBridge('show')
     }
     function callFromOC(value) {
        alert(value)
     }
 </script>
-<script type="text/javascript" src="nativehelper.js">
-   
-</script>
 </head>
 <body>
-    <button onClick="nativeFounction()" style=""> call OC function native</button>
-    <button onClick="showUIFuction()" style=""> call OC function show</button>
+    <button onClick="nativeFounction()" style=""> Fetch Message</button>
+    <button onClick="showUIFuction()" style=""> Show</button>
     
 </body>
 

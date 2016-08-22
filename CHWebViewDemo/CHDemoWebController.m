@@ -18,25 +18,26 @@
     [self presentViewController:alert animated:YES completion:NULL];
 }
 - (void)show{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"I called By show"] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"Show Function"] preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     [self presentViewController:alert animated:YES completion:NULL];
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    UIButton *callJS = [UIButton buttonWithType:UIButtonTypeCustom];
-    callJS.frame = CGRectMake(10, 100, 150, 100);
-    [callJS setTitle:@"invokeJavaScript" forState:UIControlStateNormal];
-    [callJS setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [callJS addTarget:self action:@selector(callJS) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:callJS];
 
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    UIButton *callJS = [UIButton buttonWithType:UIButtonTypeCustom];
+    callJS.frame = CGRectMake(10, 100, 80, 100);
+    [callJS setTitle:@"CallJS" forState:UIControlStateNormal];
+   // [callJS setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [callJS addTarget:self action:@selector(callJS) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:callJS];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:callJS];
+    self.navigationItem.rightBarButtonItem = right;
 }
 - (void)callJS{
-    [self invokeJavaScript:@"callFromOC('ocCallJS')"]; 
+    [self invokeJavaScript:@"callFromOC('Object-C invoke JS')"];
 }
 
 

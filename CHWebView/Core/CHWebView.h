@@ -52,6 +52,10 @@ typedef NS_ENUM(NSInteger, CHWebViewNavigationType) {
 @property ( nonatomic, readonly) BOOL canGoBack;
 @property ( nonatomic, readonly) BOOL canGoForward;
 @property ( nonatomic, readonly, getter=isLoading) BOOL loading;
+/*! @abstract   Allow Registe NatvieHelper JavaScript
+ if set No NatvieHelper will not register ,you can register on html,defult is Yes
+ */
+@property ( nonatomic, getter=isAllowNativeHelperJS) BOOL allowNativeHelperJS;
 
 - ( instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 - ( instancetype)initWithUIWebView; // If you want choose UIWebView
@@ -76,6 +80,7 @@ typedef NS_ENUM(NSInteger, CHWebViewNavigationType) {
 - (void)invokeJavaScript:(  NSString *)function;
 
 - (void)invokeJavaScript:(  NSString *)function completionHandler:( void (^)(  id, NSError * error))completionHandler;
+
 
 /*! @abstract Reloads the current page.
  */

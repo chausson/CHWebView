@@ -14,8 +14,8 @@
 		061565C11D54B28B00404CD0 /* WebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 061565BF1D54B28B00404CD0 /* WebViewDemo.html */; };
 		061565C51D54B88800404CD0 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061565C41D54B88800404CD0 /* JavaScriptCore.framework */; };
 		061565C71D54B88B00404CD0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061565C61D54B88B00404CD0 /* WebKit.framework */; };
+		06439B871D6AD9220053810D /* nativehelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 06439B861D6AD9220053810D /* nativehelper.js */; };
 		066EE1911D654E09006B8886 /* CHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066EE1901D654E09006B8886 /* CHWebView.m */; };
-		066EE1931D658653006B8886 /* nativehelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 066EE1921D658653006B8886 /* nativehelper.js */; };
 		06AD276F1D40BF24003ECF03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD276E1D40BF24003ECF03 /* main.m */; };
 		06AD27721D40BF24003ECF03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD27711D40BF24003ECF03 /* AppDelegate.m */; };
 		06AD27751D40BF24003ECF03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AD27741D40BF24003ECF03 /* ViewController.m */; };
@@ -36,9 +36,9 @@
 		061565BF1D54B28B00404CD0 /* WebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewDemo.html; sourceTree = "<group>"; };
 		061565C41D54B88800404CD0 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		061565C61D54B88B00404CD0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		06439B861D6AD9220053810D /* nativehelper.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nativehelper.js; sourceTree = "<group>"; };
 		066EE18F1D654E09006B8886 /* CHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebView.h; sourceTree = "<group>"; };
 		066EE1901D654E09006B8886 /* CHWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebView.m; sourceTree = "<group>"; };
-		066EE1921D658653006B8886 /* nativehelper.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nativehelper.js; sourceTree = "<group>"; };
 		06AD276A1D40BF23003ECF03 /* CHWebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHWebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AD276E1D40BF24003ECF03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06AD27701D40BF24003ECF03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				0613BD6D1D421365009ECF80 /* Core */,
+				06439B851D6AD9220053810D /* JavaScript */,
 				0613BD621D420FC5009ECF80 /* Progress */,
 			);
 			path = CHWebView;
@@ -95,13 +96,20 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		06439B851D6AD9220053810D /* JavaScript */ = {
+			isa = PBXGroup;
+			children = (
+				06439B861D6AD9220053810D /* nativehelper.js */,
+			);
+			path = JavaScript;
+			sourceTree = "<group>";
+		};
 		06AD27611D40BF23003ECF03 = {
 			isa = PBXGroup;
 			children = (
 				061565C61D54B88B00404CD0 /* WebKit.framework */,
 				061565C41D54B88800404CD0 /* JavaScriptCore.framework */,
 				061565BF1D54B28B00404CD0 /* WebViewDemo.html */,
-				066EE1921D658653006B8886 /* nativehelper.js */,
 				0613BD5E1D420FC5009ECF80 /* CHWebView */,
 				06AD276C1D40BF24003ECF03 /* CHWebViewDemo */,
 				06AD276B1D40BF23003ECF03 /* Products */,
@@ -202,7 +210,7 @@
 				06AD277D1D40BF25003ECF03 /* LaunchScreen.storyboard in Resources */,
 				061565C11D54B28B00404CD0 /* WebViewDemo.html in Resources */,
 				06AD277A1D40BF25003ECF03 /* Assets.xcassets in Resources */,
-				066EE1931D658653006B8886 /* nativehelper.js in Resources */,
+				06439B871D6AD9220053810D /* nativehelper.js in Resources */,
 				06AD27781D40BF24003ECF03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
