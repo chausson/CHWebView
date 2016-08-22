@@ -1,6 +1,7 @@
 # CHWebView [中文使用说明文档](https://github.com/chausson/CHWebView/tree/master/ChineseMd)
 
-CHWebView is a lightweigh object-c implemented  for webview.It's convenient to use webview between WKWebView with UIWebView,both support progressview when you load web.
+CHWebView is a lightweigh object-c implemented  for webview.It's WKWebView and UIWebView adapter.
+Support progress view when web is loading and html can convenient to call object-c method.
 
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/CHWebView/badge.svg)](http://www.cocoapods.org/?q=CHWebView)
 ![Platform info](http://img.shields.io/cocoapods/p/CHWebView.svg?style=flat)
@@ -9,11 +10,11 @@ CHWebView is a lightweigh object-c implemented  for webview.It's convenient to u
 ![image](https://github.com/chausson/CHWebView/blob/master/Resource/WebView.gif)
 
 # Features
-* Every controller base on CHWebViewContoller will display progreesview when you loading or use CHWebViewContoller init .
+* You can use UIWebView or WKWebView as usual.
 * You can load local resource file in your project more than remote url.
-* Coding JavaScript call native method in 1 line code.
-* Support WKWebView and UIWebView.
-* 
+* JavaScript call native method  just coding in a line .
+* Support CHWebViewController to load web.
+
 
 # Install
 You can download zip and drag CHWebView File in your project,also you can install with pod.
@@ -27,7 +28,20 @@ pod 'CHWebView'
 * JavaScriptCore
 * WebKit
 
-# Init WbeView
+# Init CHWbeView
+``` obj-c
+    CHWebView *webView = [[CHWebView alloc]initWithFrame:rect];
+    [webView loadRequest:self.request];
+    webView.delegate = self;
+    [self.view addSubview:webView];
+
+```
+# If you want change UIWebView
+``` obj-c
+  - ( instancetype)initWithUIWebView; 
+  - ( instancetype)initWithUIWebView:(CGRect)frame;
+```
+# Also you can use CHWebViewConroller
 ``` obj-c
 - (instancetype)initWithURL:(NSString *)url;
 
@@ -36,32 +50,34 @@ pod 'CHWebView'
 - (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 
 - (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
-
 ```
-## Object-C Code
+# JS Call Object-C OC CODE
 ``` obj-c
 - (NSArray<NSString *> *)registerJavascriptName{
-    return @[@"native",@"show"];
+    return @[@"fetchMessage",@"show"];
 }
-- (void)native:(NSDictionary *)dic{
+- (NSObject *)registerJavaScriptHandler{
+    return self;
 }
-- (void)show:(id)body{
+- (void)fetchMessage:(NSDictionary *)dic{
+}
+- (void)show:(NSDictionary *)dic{
+
 }
 ```
 # JavaScript Code 
-First of all you should import the nativehelper.js in file resouse/nativehelper.js then you can found window.nativeFunc object .
-window.nativeFunc({f},{j})
+Html can found window.NativeBridge object .
+window.NativeBridge({f},{j})
 @parameter f is native method name maybe it's named show or something else,you can defind it.
 @parameter j is parameter used by method.
 
 ``` javascript
-   function nativeFounction() {
-        
+ function nativeFounction() {
        var obj = { 'message' : 'Hello, JS!', 'numbers' : [ 1, 2, 3 ] };
-       nativeFunc('native',obj)
+       window.NativeBridge('fetchMessage',obj)
    }
     function showUIFuction(){
-       nativeFunc('show')
+       window.NativeBridge('show')
     }
 ```
 # Object-C Call JavaScript
@@ -70,6 +86,3 @@ window.nativeFunc({f},{j})
 
 - (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler;
 ```
-
-# Correlation Link
-http://chausson.github.io/2016/08/09/UIWebView%E4%B8%8EWKWebView/
