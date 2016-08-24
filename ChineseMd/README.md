@@ -47,10 +47,6 @@ pod 'CHWebView'
 
 - (instancetype)initWithFile:(NSString *)url;
 
-- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden;
-
-- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
-
 ```
 # JS调用OC代码
 ## OC代码的实现需要注册名称和注册方法接收的对象,如果继承CHWebViewController则只需要实现注册名称,Controller默认为接收对象。

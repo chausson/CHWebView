@@ -43,12 +43,12 @@ static NSArray *data = nil;
             [self.navigationController pushViewController:web animated:YES];
         } break;
         case 2:{
-            CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"] withOutNavtionBar:NO];
+            CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"]];
             web.tintColor = [UIColor greenColor];
             [self.navigationController pushViewController:web animated:YES];
         } break;
         case 3:{
-            CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"] withOutNavtionBar:NO];
+            CHDemoWebController *web = [[CHDemoWebController alloc]initWithFile:[[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"]];
             web.useUIWebView = YES;
             web.hiddenProgressView = YES;
             web.tintColor = [UIColor greenColor];

@@ -36,22 +36,6 @@
     }
     return self;
 }
-- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden{
-    if (self = [super init]) {
-        _url = [NSURL URLWithString:url];
-        _hiddenNavtionBar = hidden ;
-    }
-    return self;
-}
-
-- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden{
-    if (self = [super init]) {
-        _url = [NSURL fileURLWithPath:url];
-        _isFile = YES;
-        _hiddenNavtionBar = hidden;
-    }
-    return self;
-}
 - (void)initialize{
     CGRect rect = CGRectMake(0, 0 , self.view.frame.size.width, self.view.frame.size.height);
 //#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
@@ -84,7 +68,28 @@
     }
     return _req;
 }
-#pragma mark - KVO
+#pragma mark Activity
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initialize];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (_hiddenProgressView) {
+        [_progressView removeFromSuperview];
+    }
+//    self.navigationController.navigationBarHidden = [self isNavigationHidden];
+//    self.automaticallyAdjustsScrollViewInsets = ![self isNavigationHidden];
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+}
+#pragma mark - WebViewDelegate
 
 - (void)webView:(CHWebView *)webVie  updateProgress:(NSProgress *)progress{
     [_progressView setProgress:progress];
@@ -99,7 +104,6 @@
     
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -107,7 +111,6 @@
     }]];
     [self presentViewController:alert animated:YES completion:NULL];
 }
-#endif
 
 /**
  * @brief Register Invoke JavaScript observe
@@ -115,47 +118,28 @@
 - (NSObject *)registerJavaScriptHandler{
     return self;
 }
-#pragma mark Activity
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self initialize];
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    if (_hiddenProgressView) {
-        [_progressView removeFromSuperview];
-    }
-    self.navigationController.navigationBarHidden = [self isNavigationHidden];
-    self.automaticallyAdjustsScrollViewInsets = ![self isNavigationHidden];
-  
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-
-}
-#pragma mark Delegate
-
-
-- (void)invokeJavaScript:(NSString *)function{
-    [self.webView invokeJavaScript:function];
-  
-}
-
-- (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler{
-     [self.webView invokeJavaScript:function completionHandler:completionHandler];
-}
-#pragma makr Private
-
-- (BOOL)isNavigationHidden{
-    return _hiddenNavtionBar;
-}
-
 - (NSArray <NSString *>*)registerJavascriptName{
     return nil;
 }
+#pragma mark Public
+
+- (void)invokeJavaScript:(NSString *)function{
+    [self.webView invokeJavaScript:function];
+    
+}
+
+- (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler{
+    [self.webView invokeJavaScript:function completionHandler:completionHandler];
+}
+
+#pragma makr Private
+- (BOOL)isNavigationHidden{
+    return !self.navigationController
+            || !self.navigationController.navigationBar.isTranslucent
+            || !self.navigationController.navigationBar;
+}
+
+
 -(void)dealloc{
     
 }

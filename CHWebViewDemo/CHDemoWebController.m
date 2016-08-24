@@ -39,7 +39,10 @@
 - (void)callJS{
     [self invokeJavaScript:@"callFromOC('Object-C invoke JS')"];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+//    self.navigationController.navigationBarHidden = YES;    
+}
 
 - (NSArray<NSString *> *)registerJavascriptName{
     return @[@"fetchMessage",@"show"];

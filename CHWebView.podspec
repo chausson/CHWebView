@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "1.6"
+  s.version      = "1.7"
   s.summary      = "WebView component,progress ,javascript "
-  s.description  = "update podspec and pod resource file path"
+  s.description  = "fix progress view orgin error,update demo project and controller"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.6"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.7"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.frameworks = 'WebKit', 'JavaScriptCore'
   s.default_subspecs = "Core","Progress"

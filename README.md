@@ -47,9 +47,6 @@ pod 'CHWebView'
 
 - (instancetype)initWithFile:(NSString *)url;
 
-- (instancetype)initWithURL:(NSString *)url withOutNavtionBar:(BOOL)hidden;
-
-- (instancetype)initWithFile:(NSString *)url withOutNavtionBar:(BOOL)hidden;
 ```
 # JS Call Object-C OC CODE
 ``` obj-c
