@@ -197,7 +197,7 @@
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
     WKWebView *web = (WKWebView *)_webView;
     web.configuration.userContentController = [[WKUserContentController alloc] init];
-    if (self.delegate && [self.delegate registerJavascriptName].count > 0) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(registerJavascriptName)]) {
         [[self.delegate registerJavascriptName] enumerateObjectsUsingBlock:^(NSString * _Nonnull name, NSUInteger idx, BOOL * _Nonnull stop) {
             [web.configuration.userContentController removeScriptMessageHandlerForName:name];
             [web.configuration.userContentController addScriptMessageHandler:self name:name];
@@ -238,13 +238,15 @@
     if ([self.delegate respondsToSelector:@selector(webViewDidFinshLoad:)]) {
         UIWebView *web = (UIWebView *)_webView;
         self.context=[web valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-        [[self.delegate registerJavascriptName] enumerateObjectsUsingBlock:^(NSString * _Nonnull name, NSUInteger idx, BOOL * _Nonnull stop) {
-            __weak typeof(self) weakSelf = self;
-            self.context[name] = ^(id body){
-                __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf invokeIMPFunction:body name:name];
-            };
-        }];
+        if([self.delegate respondsToSelector:@selector(registerJavascriptName)]){
+            [[self.delegate registerJavascriptName] enumerateObjectsUsingBlock:^(NSString * _Nonnull name, NSUInteger idx, BOOL * _Nonnull stop) {
+                __weak typeof(self) weakSelf = self;
+                self.context[name] = ^(id body){
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    [strongSelf invokeIMPFunction:body name:name];
+                };
+            }];
+        }
         if (self.isAllowNativeHelperJS){
             [self registerNativeHelperJS];
         }
@@ -384,7 +386,11 @@
     }
 
 }
-#pragma mark Getter
+#pragma mark Getter & Setter
+- (void)setFrame:(CGRect)frame{
+    _webView.frame = frame;
+    [super setFrame:frame];
+}
 - (WKWebViewConfiguration *)configuretion{
     WKWebViewConfiguration *configuretion = [[WKWebViewConfiguration alloc] init];
     configuretion.preferences = [[WKPreferences alloc]init];

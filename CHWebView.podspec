@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "1.7"
+  s.version      = "1.8"
   s.summary      = "WebView component,progress ,javascript "
-  s.description  = "fix progress view orgin error,update demo project and controller"
+  s.description  = "fix delegate method not found cause crash and webview frame"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.7"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.8"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.frameworks = 'WebKit', 'JavaScriptCore'
   s.default_subspecs = "Core","Progress"
