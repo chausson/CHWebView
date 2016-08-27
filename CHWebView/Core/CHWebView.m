@@ -388,8 +388,8 @@
 }
 #pragma mark Getter & Setter
 - (void)setFrame:(CGRect)frame{
-    _webView.frame = frame;
     [super setFrame:frame];
+    _webView.frame = self.bounds;
 }
 - (WKWebViewConfiguration *)configuretion{
     WKWebViewConfiguration *configuretion = [[WKWebViewConfiguration alloc] init];
