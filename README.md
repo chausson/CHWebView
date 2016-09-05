@@ -83,3 +83,7 @@ window.NativeBridge({f},{j})
 
 - (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler;
 ```
+
+# CHWebView Design
+
+<img src="https://github.com/chausson/CHWebView/blob/master/Resource/CHWebView.png"  title="CHWebView">

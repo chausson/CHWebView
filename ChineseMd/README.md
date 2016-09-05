@@ -80,5 +80,9 @@ pod 'CHWebView'
 - (void)invokeJavaScript:(NSString *)function completionHandler:(void (^)( id, NSError * error))completionHandler;
 ```
 
+# CHWebView设计图
+
+<img src="https://github.com/chausson/CHWebView/blob/master/Resource/CHWebView.png"  title="CHWebView设计图">
+
 # Correlation Link
 http://chausson.github.io/2016/08/09/UIWebView%E4%B8%8EWKWebView/
