@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "1.9"
+  s.version      = "2.0"
   s.summary      = "WebView component,progress ,javascript "
   s.description  = "fix delegate method not found cause crash and webview frame"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "1.9"}
+  s.source       = { :git => "https://github.com/chausson/CHWebView.git", :tag => "2.0"}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.frameworks = 'WebKit', 'JavaScriptCore'
   s.default_subspecs = "Core","Progress"
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   s.subspec 'Progress' do |p|
    p.source_files = "CHWebView/Progress"
   end
-  s.resources = "CHWebView/JavaScript/nativehelper.js"
+  s.resources = "CHWebView/Resource/CHWebView.bundle"
 end

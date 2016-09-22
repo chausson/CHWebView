@@ -348,6 +348,10 @@
     if (file) {
         NSString *js = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
         [self invokeJavaScript:js];
+    }else{
+        NSURL *url = [[CHWebView bundleForName:@"CHWebView"] URLForResource:@"nativehelper" withExtension:@"js"];
+        NSString *js = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        [self invokeJavaScript:js];
     }
 }
 - (void)updateUIForWKWebView:(WKWebView *)web {
@@ -428,6 +432,13 @@
     }else{
         return _estimatedProgress;
     }
+}
++ (NSBundle *)bundleForName:(NSString *)bundleName{
+    NSString *pathComponent = [NSString stringWithFormat:@"%@.bundle", bundleName];
+    NSString *bundlePath =[[[NSBundle bundleForClass:[self class]] resourcePath] stringByAppendingPathComponent:pathComponent];
+    NSBundle *customizedBundle = [NSBundle bundleWithPath:bundlePath];
+    return customizedBundle;
+    
 }
 -(void)dealloc{
     if ([_webView isKindOfClass:[WKWebView class]]) {
