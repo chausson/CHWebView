@@ -255,7 +255,7 @@
         
     }
 }
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
 
     if ( [self.delegate respondsToSelector:@selector(webView:withError:)]) {
         [self.delegate webView:self withError:error];
