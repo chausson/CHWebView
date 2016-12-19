@@ -57,7 +57,12 @@
     }
     return self;
 }
-
+- (void)loadUrl:(NSString *)url{
+    
+    NSAssert(url.length, @"Error CHWebView loadURL: is not allow nil or empty");
+    NSURLRequest *rquest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [self loadRequest:url];
+}
 /*! @abstract  requested URL.*/
 - (void)loadRequest:(  NSURLRequest *)request{
     SEL selector = NSSelectorFromString(@"loadRequest:");

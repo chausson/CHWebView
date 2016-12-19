@@ -62,6 +62,8 @@ typedef NS_ENUM(NSInteger, CHWebViewNavigationType) {
 - ( instancetype)initWithUIWebView:(CGRect)frame;
 /*! @abstract  requested URL.*/
 - (void)loadRequest:(  NSURLRequest *)request;
+/*! @abstract  requested URL. map NSURLRequest*/
+- (void)loadUrl:(NSString *)url;
 
 /*! @abstract Sets the webpage contents and base URL.
  @param string The string to use as the contents of the webpage.
