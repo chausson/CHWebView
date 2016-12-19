@@ -61,7 +61,7 @@
     
     NSAssert(url.length, @"Error CHWebView loadURL: is not allow nil or empty");
     NSURLRequest *rquest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [self loadRequest:url];
+    [self loadRequest:rquest];
 }
 /*! @abstract  requested URL.*/
 - (void)loadRequest:(  NSURLRequest *)request{
@@ -74,13 +74,6 @@
         });
         
     }
-//    if ([_webView isKindOfClass:[WKWebView class]]) {
-//        WKWebView *wk = (WKWebView *)_webView;
-//         [wk loadRequest:request];
-//    }else{
-//        UIWebView *web = (UIWebView *)_webView;
-//        [web loadRequest:request];
-//    }
 }
 
 /*! @abstract Sets the webpage contents and base URL.
@@ -310,7 +303,7 @@
     _allowNativeHelperJS = YES;
     [self addSubview:webView];
     [self registerForKVO];
-    
+    [self layout];
 }
 - (void)initializeUIWebView:(UIWebView *)webView{
     _progressProxy = [[CHWebViewProress alloc]init];
@@ -320,6 +313,19 @@
     webView.backgroundColor = [UIColor whiteColor];
     _allowNativeHelperJS = YES;
     [self addSubview:webView];
+    [self layout];
+}
+- (void)layout{
+    //使用Auto Layout约束，禁止将Autoresizing Mask转换为约束
+    [_webView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    //layout 子view
+    NSLayoutConstraint *contraint1 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *contraint2 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *contraint3 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *contraint4 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+    //把约束添加到父视图上
+    NSArray *array = [NSArray arrayWithObjects:contraint1, contraint2, contraint3, contraint4, nil];
+    [self addConstraints:array];
 }
 - (UIViewController *)fetchVC{
     UIViewController *result = nil;
@@ -445,9 +451,13 @@
     return customizedBundle;
     
 }
--(void)dealloc{
+- (void)removeFromSuperview{
+    [super removeFromSuperview];
     if ([_webView isKindOfClass:[WKWebView class]]) {
         [self unregisterFromKVO];
     }
+}
+-(void)dealloc{
+    
 }
 @end
