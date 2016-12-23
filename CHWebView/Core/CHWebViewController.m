@@ -107,9 +107,13 @@
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        completionHandler();
+        if(completionHandler){
+            completionHandler();
+        }
     }]];
-    [self presentViewController:alert animated:YES completion:NULL];
+    if (self) {
+        [self presentViewController:alert animated:YES completion:NULL];
+    }
 }
 
 /**
