@@ -36,32 +36,7 @@
     }
     return self;
 }
-- (void)initialize{
-    CGRect rect = CGRectMake(0, 0 , self.view.frame.size.width, self.view.frame.size.height);
-//#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
-//#else
-//#endif
-    if (self.useUIWebView) {
-        _webView = [[CHWebView alloc]initWithUIWebView:rect];
-    }else{
-        _webView = [[CHWebView alloc]initWithFrame:rect];
-   
-    }
-    [_webView loadRequest:self.req];
-    _webView.delegate = self;
-    [self.view addSubview:_webView];
 
-    _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, [self isNavigationHidden]?0:64, self.view.frame.size.width, 2)];
-    if(_tintColor){
-        _progressView.color = _tintColor;
-    }
-    if([self isNavigationHidden]){
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    [self.view addSubview:_progressView];
-
-
-}
 - (NSURLRequest *)req{
     if (!_req) {
         _req = [NSURLRequest requestWithURL:self.url];
@@ -72,6 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initialize];
+    [self layout];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -88,6 +64,43 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
+}
+- (void)initialize{
+    CGRect rect = CGRectMake(0, 0 , self.view.frame.size.width, self.view.frame.size.height);
+    //#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
+    //#else
+    //#endif
+    if (self.useUIWebView) {
+        _webView = [[CHWebView alloc]initWithUIWebView:rect];
+    }else{
+        _webView = [[CHWebView alloc]initWithFrame:rect];
+        
+    }
+    [_webView loadRequest:self.req];
+    _webView.delegate = self;
+    [self.view addSubview:_webView];
+    
+    _progressView = [[CHWebProgressView alloc]initWithFrame:CGRectMake(0, [self isNavigationHidden]?0:64, self.view.frame.size.width, 2)];
+    if(_tintColor){
+        _progressView.color = _tintColor;
+    }
+    if([self isNavigationHidden]){
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    [self.view addSubview:_progressView];
+    
+    
+}
+- (void)layout{
+    [_webView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    //layout 子view
+    NSLayoutConstraint *contraint1 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *contraint2 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *contraint3 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *contraint4 = [NSLayoutConstraint constraintWithItem:_webView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+    //把约束添加到父视图上
+    NSArray *array = [NSArray arrayWithObjects:contraint1, contraint2, contraint3, contraint4, nil];
+    [self.view addConstraints:array];
 }
 #pragma mark - WebViewDelegate
 
