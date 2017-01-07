@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "2.0.5"
+  s.version      = "2.0.6"
   s.summary      = "WebView component,progress ,javascript "
-  s.description  = "Fix WebView of  CHViewController layout bug "
+  s.description  = "Fix WebView of  CHViewController Title Reset Bug"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
   s.license      = "MIT"
   s.author       = { "Chausson" => "232564026@qq.com" }

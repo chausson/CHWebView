@@ -10,7 +10,9 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 #import <WebKit/WebKit.h>
 #endif
+
 @class CHWebView;
+
 typedef NS_ENUM(NSInteger, CHWebViewNavigationType) {
     CHWebViewNavigationTypeLinkClicked,
     CHWebViewNavigationTypeFormSubmitted,

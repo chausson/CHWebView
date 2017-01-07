@@ -111,7 +111,9 @@
     
 }
 - (void)webViewDidFinshLoad:(CHWebView *)webView{
-    self.title = webView.title;
+    if (self.title.length == 0) {
+        self.title = webView.title;
+    }
 }
 - (void)webViewDidStartLoad:(CHWebView *)webView{
     
