@@ -10,14 +10,15 @@
 
 @interface CHWebViewController : UIViewController
 
-@property (nonatomic, strong)NSURL *url;
+@property (nonatomic, strong) NSURL *url;
 
-@property (nonatomic, strong)UIColor *tintColor;
+@property (nonatomic, strong) UIColor *tintColor;
 
-@property (nonatomic, readonly)CHWebView *webView;
-@property (nonatomic, assign ,getter= isUseUIWebView)BOOL useUIWebView;
+@property (nonatomic, readonly) CHWebView *webView;
 
-@property (nonatomic, assign ,getter= isHiddenProgressView)BOOL hiddenProgressView; // defult is NO ,if you set Yes the progressBar will not show .
+@property (nonatomic, assign ,getter= isUseUIWebView) BOOL useUIWebView;
+
+@property (nonatomic, assign ,getter= isHiddenProgressView) BOOL hiddenProgressView; // defult is NO ,if you set Yes the progressBar will not show .
 /**
  * @brief 根据远端URL地址加载
  */

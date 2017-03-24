@@ -152,6 +152,24 @@
 - (void)goForward{
     [self invokeName:@"goForward"];
 }
+- (BOOL)canGoBack{
+    if ([_webView isKindOfClass:[WKWebView class]]) {
+        WKWebView *wk = (WKWebView *)_webView;
+        return wk.canGoBack;
+    }else{
+        UIWebView *wk = (UIWebView *)_webView;
+        return wk.canGoBack;
+    }
+}
+- (BOOL)canGoForward{
+    if ([_webView isKindOfClass:[WKWebView class]]) {
+        WKWebView *wk = (WKWebView *)_webView;
+        return wk.canGoForward;
+    }else{
+        UIWebView *wk = (UIWebView *)_webView;
+        return wk.canGoForward;
+    }
+}
 - (void)invokeName:(NSString *)name{
     SEL selector = NSSelectorFromString(name);
     if ([_webView respondsToSelector:selector]) {
