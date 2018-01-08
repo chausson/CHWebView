@@ -12,6 +12,9 @@ Pod::Spec.new do |s|
                      :tag => s.version}
 #  s.source_files  = "CHWebView/CHWebViewController.{h.m}"
   s.frameworks = 'WebKit', 'JavaScriptCore'
+  s.resource_bundles = {
+    'Resources' => ['CHWebView/**/*.{js}']
+  }
   s.default_subspecs = "Core","Progress"
   s.subspec 'Core' do |c|
    c.source_files = "CHWebView/Core"
@@ -20,8 +23,4 @@ Pod::Spec.new do |s|
   s.subspec 'Progress' do |p|
    p.source_files = "CHWebView/Progress"
   end
-  s.resource_bundles = {
-    'Resources' => ['MGSmartHomeModule/Assets/*.png',
-                    'MGSmartHomeModule/**/*.{xib}']
-  }
 end
