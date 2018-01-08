@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06AD27691D40BF23003ECF03"
-               BuildableName = "CHWebViewDemo.app"
-               BlueprintName = "CHWebViewDemo"
-               ReferencedContainer = "container:CHWebViewDemo.xcodeproj">
+               BlueprintIdentifier = "6003F589195388D20070C39A"
+               BuildableName = "CHWebView_Example.app"
+               BlueprintName = "CHWebView_Example"
+               ReferencedContainer = "container:CHWebView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,14 +29,24 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6003F5AD195388D20070C39A"
+               BuildableName = "CHWebView_Tests.xctest"
+               BlueprintName = "CHWebView_Tests"
+               ReferencedContainer = "container:CHWebView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06AD27691D40BF23003ECF03"
-            BuildableName = "CHWebViewDemo.app"
-            BlueprintName = "CHWebViewDemo"
-            ReferencedContainer = "container:CHWebViewDemo.xcodeproj">
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "CHWebView_Example.app"
+            BlueprintName = "CHWebView_Example"
+            ReferencedContainer = "container:CHWebView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,10 +67,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06AD27691D40BF23003ECF03"
-            BuildableName = "CHWebViewDemo.app"
-            BlueprintName = "CHWebViewDemo"
-            ReferencedContainer = "container:CHWebViewDemo.xcodeproj">
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "CHWebView_Example.app"
+            BlueprintName = "CHWebView_Example"
+            ReferencedContainer = "container:CHWebView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,10 +86,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06AD27691D40BF23003ECF03"
-            BuildableName = "CHWebViewDemo.app"
-            BlueprintName = "CHWebViewDemo"
-            ReferencedContainer = "container:CHWebViewDemo.xcodeproj">
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "CHWebView_Example.app"
+            BlueprintName = "CHWebView_Example"
+            ReferencedContainer = "container:CHWebView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

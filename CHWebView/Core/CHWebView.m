@@ -113,15 +113,10 @@
 - (void)invokeJavaScript:(NSString *)function{
     if ([_webView isKindOfClass:[WKWebView class]]) {
         WKWebView *wk = (WKWebView *)_webView;
-        [wk evaluateJavaScript:function completionHandler:^(id a, NSError *e)
-         {
-
-         }];
+        [wk evaluateJavaScript:function completionHandler:nil];
     }else{
-
         [self.context evaluateScript:function];
     }
-    
 }
 - (void)invokeJavaScript:(NSString *)function completionHandler:(void (^ )( id, NSError * error))completionHandler{
     if ([_webView isKindOfClass:[WKWebView class]]) {
@@ -133,11 +128,14 @@
              }
          }];
     }else{
-        [self.context evaluateScript:function];
+        JSValue *value = [self.context evaluateScript:function];
+        if (value && completionHandler != nil){
+            completionHandler(value.toObject,nil);
+        }
+        
     }
 
 }
-
 /*! @abstract Reloads the current page.
  */
 - (void)reload{

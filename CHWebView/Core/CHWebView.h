@@ -76,7 +76,7 @@ typedef NS_ENUM(NSInteger, CHWebViewNavigationType) {
 /*! @abstract Sets the webpage contents and base URL.
  @param data The data to use as the contents of the webpage.
  @param MIMEType The MIME type of the data.
- @param encodingName The data's character encoding name.
+ @param textEncodingName The data's character encoding name.
  @param baseURL A URL that is used to resolve relative URLs within the document.
  */
 - (void)loadData:(  NSData *)data MIMEType:(  NSString *)MIMEType textEncodingName:(  NSString *)textEncodingName baseURL:(  NSURL *)baseURL;
