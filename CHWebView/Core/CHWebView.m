@@ -381,7 +381,7 @@
         [self invokeJavaScript:js];
     }else{
         NSBundle *customizedBundle = [NSBundle bundleForClass:[self class]];
-        NSURL *path = [NSURL fileURLWithPath:[customizedBundle pathForResource:@"CHWebView" ofType:@"bundle"]];
+        NSURL *path = [NSURL fileURLWithPath:[customizedBundle pathForResource:@"Resources" ofType:@"bundle"]];
         NSBundle *bundle = [NSBundle bundleWithURL:path];
         NSURL *url = [NSURL fileURLWithPath:[bundle pathForResource:@"nativehelper" ofType:@"js"]];
         NSString *js = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];

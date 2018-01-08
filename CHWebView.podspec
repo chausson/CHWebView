@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CHWebView"
-  s.version      = "2.0.8"
+  s.version      = "2.0.9"
   s.summary      = "WebView component,progress ,javascript "
   s.description  = "Fix WebView of  CHViewController Title Reset Bug"
   s.homepage     = "https://github.com/chausson/CHWebView.git"
@@ -20,5 +20,8 @@ Pod::Spec.new do |s|
   s.subspec 'Progress' do |p|
    p.source_files = "CHWebView/Progress"
   end
-  s.resources = "CHWebView/Resource/CHWebView.bundle"
+  s.resource_bundles = {
+    'Resources' => ['MGSmartHomeModule/Assets/*.png',
+                    'MGSmartHomeModule/**/*.{xib}']
+  }
 end
