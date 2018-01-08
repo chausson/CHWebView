@@ -380,7 +380,10 @@
         NSString *js = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
         [self invokeJavaScript:js];
     }else{
-        NSURL *url = [[CHWebView bundleForName:@"CHWebView"] URLForResource:@"nativehelper" withExtension:@"js"];
+        NSBundle *customizedBundle = [NSBundle bundleForClass:[self class]];
+        NSURL *path = [NSURL fileURLWithPath:[customizedBundle pathForResource:@"CHWebView" ofType:@"bundle"]];
+        NSBundle *bundle = [NSBundle bundleWithURL:path];
+        NSURL *url = [NSURL fileURLWithPath:[bundle pathForResource:@"nativehelper" ofType:@"js"]];
         NSString *js = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
         [self invokeJavaScript:js];
     }
@@ -463,13 +466,6 @@
     }else{
         return _estimatedProgress;
     }
-}
-+ (NSBundle *)bundleForName:(NSString *)bundleName{
-    NSString *pathComponent = [NSString stringWithFormat:@"%@.bundle", bundleName];
-    NSString *bundlePath =[[[NSBundle bundleForClass:[self class]] resourcePath] stringByAppendingPathComponent:pathComponent];
-    NSBundle *customizedBundle = [NSBundle bundleWithPath:bundlePath];
-    return customizedBundle;
-    
 }
 - (void)removeFromSuperview{
     [super removeFromSuperview];
